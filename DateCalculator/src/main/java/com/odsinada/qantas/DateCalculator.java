@@ -8,6 +8,6 @@ public class DateCalculator {
         TheDate theStartDate = new TheDate(startTokens[0], startTokens[1], startTokens[2]);
         TheDate theEndDate = new TheDate(endTokens[0], endTokens[1], endTokens[2]);
 
-        return TheDate.getDaysBetween(theStartDate, theEndDate);
+        return TheDate.getDaysBetweenNew(theStartDate, theEndDate);
     }
 }

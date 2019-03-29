@@ -7,6 +7,10 @@ public class TheYear {
         this.year = year;
     }
 
+    public TheYear(TheYear modelYear) {
+        this.year = modelYear.getYear();
+    }
+
     public static int getDaysBetweenExclusive(TheYear startYear, TheYear endYear) {
         int totalDays = 0;
         for (int i = startYear.getYear() + 1; i < endYear.getYear(); i++) {

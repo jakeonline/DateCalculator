@@ -52,10 +52,16 @@ public class TheMonth {
     private final TheYear year;
 
 
-    public TheMonth(int month, TheYear year) {
+    public TheMonth(int month, int year) {
         this.month = month;
-        this.year = year;
+        this.year = new TheYear(year);
     }
+
+    public TheMonth(TheMonth modelMonth, TheYear modelYear) {
+        this.month = modelMonth.getMonth();
+        this.year = new TheYear(modelYear);
+    }
+
 
     public int getDaysPrior() {
         int daysPrior = 0;
@@ -69,6 +75,10 @@ public class TheMonth {
         return daysPrior;
     }
 
+    public int getMonth() {
+        return month;
+    }
+
     private int getDayCount(Month month) {
         int dayCount = month.getNumberOfDays();
         if(month == FEBRUARY && year.isLeapYear()){
@@ -77,4 +87,12 @@ public class TheMonth {
         return dayCount;
     }
 
+    public int getMonthEndDay() {
+        int monthEnd =  months.get(this.month).getNumberOfDays();
+        if(months.get(this.month) == FEBRUARY && year.isLeapYear()){
+            monthEnd = monthEnd + 1;
+        }
+
+        return monthEnd;
+    }
 }
