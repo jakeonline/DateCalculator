@@ -89,6 +89,7 @@ public class DateCalculatorTest {
 
         // given test case
         assertThat(calc.getDaysBetween("1989-01-03", "1983-08-03"), equalTo(1979));
+        assertThat(calc.getDaysBetween("1901-01-01", "2999-12-31"), equalTo(401400));
     }
 
 

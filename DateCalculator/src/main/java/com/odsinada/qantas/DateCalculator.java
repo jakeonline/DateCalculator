@@ -1,10 +1,11 @@
 package com.odsinada.qantas;
 
+import java.util.Scanner;
+
 public class DateCalculator {
     public static void main(String[] args) {
-
-        new DateCalculator().getDaysBetween(args[0], args[1]);
-
+        int daysBetween = new DateCalculator().getDaysBetween(args[0], args[1]);
+        System.out.println("Total days exclusive of input dates is: " + daysBetween);
     }
 
     public int getDaysBetween(String argA, String argB) {
@@ -18,15 +19,24 @@ public class DateCalculator {
                 , Integer.parseInt(tokenB[1])
                 , Integer.parseInt(tokenB[2]));
 
-        if(dateA.isBeyond(dateB)){
-            return calculate(dateB, dateA);
-        } else {
-            return calculate(dateA, dateB);
-        }
+        return calculate(dateA, dateB);
 
     }
 
-    private int calculate(JDate startDate, JDate endDate) {
+    private int calculate(JDate dateA, JDate dateB) {
+
+        // identify start and end dates
+        JDate startDate = null;
+        JDate endDate = null;
+        if(dateA.isBeyond(dateB)){
+            startDate = dateB;
+            endDate = dateA;
+        } else {
+            startDate = dateA;
+            endDate = dateB;
+        }
+
+        // calculate
         JDate runningDate = JDate.clone(startDate);
         int totalDays = 0;
 

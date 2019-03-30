@@ -71,18 +71,18 @@ public class JMonth {
 }
 
 class Month {
-    private final int index;
-    private final int dayCount;
+    final int index;
+    final int dayCount;
 
-    public int getDayCount() {
+    int getDayCount() {
         return dayCount;
     }
 
-    public int getIndex() {
+    int getIndex() {
         return index;
     }
 
-    public Month(int index, int dayCount) {
+    Month(int index, int dayCount) {
         this.index = index;
         this.dayCount = dayCount;
     }
