@@ -5,8 +5,6 @@ import java.util.TreeMap;
 
 public class TheMonth {
 
-    private final int month;
-
     private static final Month JANUARY;
     private static final Month FEBRUARY;
     private static final Month MARCH;
@@ -19,7 +17,8 @@ public class TheMonth {
     private static final Month OCTOBER;
     private static final Month NOVEMBER;
     private static final Month DECEMBER;
-    private static final Map<Integer, Month> months;
+    private static final Map<Integer, Month> MONTHS;
+
     static {
         JANUARY = new Month(1, 31);
         FEBRUARY = new Month(2, 28);
@@ -34,62 +33,36 @@ public class TheMonth {
         NOVEMBER = new Month(11, 30);
         DECEMBER = new Month(12, 31);
 
-        months = new TreeMap<>();
-        months.put(JANUARY.getIndex(), JANUARY);
-        months.put(FEBRUARY.getIndex(), FEBRUARY);
-        months.put(MARCH.getIndex(), MARCH);
-        months.put(APRIL.getIndex(), APRIL);
-        months.put(MAY.getIndex(), MAY);
-        months.put(JUNE.getIndex(), JUNE);
-        months.put(JULY.getIndex(), JULY);
-        months.put(AUGUST.getIndex(), AUGUST);
-        months.put(SEPTEMBER.getIndex(), SEPTEMBER);
-        months.put(OCTOBER.getIndex(), OCTOBER);
-        months.put(NOVEMBER.getIndex(), NOVEMBER);
-        months.put(DECEMBER.getIndex(), DECEMBER);
+        MONTHS = new TreeMap<>();
+        MONTHS.put(JANUARY.getIndex(), JANUARY);
+        MONTHS.put(FEBRUARY.getIndex(), FEBRUARY);
+        MONTHS.put(MARCH.getIndex(), MARCH);
+        MONTHS.put(APRIL.getIndex(), APRIL);
+        MONTHS.put(MAY.getIndex(), MAY);
+        MONTHS.put(JUNE.getIndex(), JUNE);
+        MONTHS.put(JULY.getIndex(), JULY);
+        MONTHS.put(AUGUST.getIndex(), AUGUST);
+        MONTHS.put(SEPTEMBER.getIndex(), SEPTEMBER);
+        MONTHS.put(OCTOBER.getIndex(), OCTOBER);
+        MONTHS.put(NOVEMBER.getIndex(), NOVEMBER);
+        MONTHS.put(DECEMBER.getIndex(), DECEMBER);
     }
 
+    private final int month;
     private final TheYear year;
-
 
     public TheMonth(int month, int year) {
         this.month = month;
         this.year = new TheYear(year);
     }
 
-    public TheMonth(TheMonth modelMonth, TheYear modelYear) {
-        this.month = modelMonth.getMonth();
-        this.year = new TheYear(modelYear);
-    }
-
-
-    public int getDaysPrior() {
-        int daysPrior = 0;
-        for (Map.Entry<Integer, Month> month : months.entrySet()) {
-            if (month.getValue().getIndex() >= this.month) {
-                break;
-            }
-            daysPrior += getDayCount(month.getValue());
-        }
-
-        return daysPrior;
-    }
-
     public int getMonth() {
         return month;
     }
 
-    private int getDayCount(Month month) {
-        int dayCount = month.getNumberOfDays();
-        if(month == FEBRUARY && year.isLeapYear()){
-            dayCount = dayCount + 1;
-        }
-        return dayCount;
-    }
-
     public int getMonthEndDay() {
-        int monthEnd =  months.get(this.month).getNumberOfDays();
-        if(months.get(this.month) == FEBRUARY && year.isLeapYear()){
+        int monthEnd = MONTHS.get(this.month).getDayCount();
+        if (MONTHS.get(this.month) == FEBRUARY && year.isLeapYear()) {
             monthEnd = monthEnd + 1;
         }
 

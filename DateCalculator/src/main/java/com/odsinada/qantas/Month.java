@@ -2,18 +2,18 @@ package com.odsinada.qantas;
 
 public class Month {
     private final int index;
-    private final int numberOfDays;
+    private final int dayCount;
 
-    public int getNumberOfDays() {
-        return numberOfDays;
+    public int getDayCount() {
+        return dayCount;
     }
 
     public int getIndex() {
         return index;
     }
 
-    public Month(int index, int numberOfDays) {
+    public Month(int index, int dayCount) {
         this.index = index;
-        this.numberOfDays = numberOfDays;
+        this.dayCount = dayCount;
     }
 }

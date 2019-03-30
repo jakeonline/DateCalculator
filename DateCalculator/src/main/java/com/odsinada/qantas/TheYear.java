@@ -7,23 +7,6 @@ public class TheYear {
         this.year = year;
     }
 
-    public TheYear(TheYear modelYear) {
-        this.year = modelYear.getYear();
-    }
-
-    public static int getDaysBetweenExclusive(TheYear startYear, TheYear endYear) {
-        int totalDays = 0;
-        for (int i = startYear.getYear() + 1; i < endYear.getYear(); i++) {
-            totalDays += new TheYear(i).getDays();
-        }
-
-        return totalDays;
-    }
-
-    public int getDays() {
-        return isLeapYear() ? 366 : 365;
-    }
-
     public int getYear() {
         return this.year;
     }

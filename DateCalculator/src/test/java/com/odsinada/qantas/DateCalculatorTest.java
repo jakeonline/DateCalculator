@@ -16,39 +16,15 @@ public class DateCalculatorTest {
         calc = new DateCalculator();
     }
 
-//    @Test
-//    public void shouldCalcDaysSameMonthYear(){
-//        // arrange
-//        // act
-//        // assert
-//        assertThat(calc.getDaysBetween("1983-06-02", "1983-06-22"), equalTo(19));
-//        assertThat(calc.getDaysBetween("2001-01-01", "2001-01-30"), equalTo(28));
-//    }
-//
-//    @Test
-//    public void shouldCalcDaysSameYearDifferentMonthsInNormalYear(){
-//        // arrange
-//        // act
-//        // assert
-//        assertThat(calc.getDaysBetween("2001-01-01", "2001-04-15"), equalTo(103));
-//        assertThat(calc.getDaysBetween("2001-06-01", "2001-12-10"), equalTo(191));
-//    }
-//
-//    @Test
-//    public void shouldCalcDaysSameYearDifferentMonthsInLeapYear(){
-//        // arrange
-//        // act
-//        // assert
-//        assertThat(calc.getDaysBetween("2000-01-01", "2001-04-15"), equalTo(468));
-//    }
-//
-//    @Test
-//    public void shouldCalcDaysDifferentYearMonthsInNormalYear(){
-//        // arrange
-//        // act
-//        // assert
-//        assertThat(calc.getDaysBetween("2001-01-01", "2001-04-15"), equalTo(73));
-//    }
+    @Test
+    public void shouldCalcSucceedingDays(){
+        assertThat(calc.getDaysBetween("1972-11-07", "1972-11-08"), equalTo(0));
+    }
+
+    @Test
+    public void shouldCalcSameDay(){
+        assertThat(calc.getDaysBetween("1972-11-07", "1972-11-07"), equalTo(0));
+    }
 
     @Test
     public void shouldCalcDaysBetweenSameMonthSameYear(){
@@ -85,9 +61,18 @@ public class DateCalculatorTest {
     }
 
     @Test
-    @Ignore
     public void shouldCalcDaysCrossingMonthDifferentYear(){
         assertThat(calc.getDaysBetween("2001-12-01", "2002-01-31"), equalTo(60));
+        assertThat(calc.getDaysBetween("2001-11-01", "2002-02-28"), equalTo(118));
+        assertThat(calc.getDaysBetween("2001-01-01", "2002-03-31"), equalTo(453));
+    }
+
+    @Test
+    public void shouldCalcDaysQantas(){
+        assertThat(calc.getDaysBetween("1983-06-02", "1983-06-22"), equalTo(19));
+        assertThat(calc.getDaysBetween("1984-07-04", "1984-12-25"), equalTo(173));
+//        assertThat(calc.getDaysBetween("989-01-03", "1983-08-03"), equalTo(1979));
+        assertThat(calc.getDaysBetween("1983-08-03", "1989-01-03"), equalTo(1979));
     }
 
 
