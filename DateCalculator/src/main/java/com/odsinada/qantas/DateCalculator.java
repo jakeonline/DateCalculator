@@ -9,8 +9,8 @@ public class DateCalculator {
     }
 
     public int getDaysBetween(String argA, String argB) {
-        String[] tokenA = argA.split("-");
-        String[] tokenB = argB.split("-");
+        String[] tokenA = argA.trim().split("-");
+        String[] tokenB = argB.trim().split("-");
 
         JDate dateA = new JDate(Integer.parseInt(tokenA[0])
                 , Integer.parseInt(tokenA[1])
