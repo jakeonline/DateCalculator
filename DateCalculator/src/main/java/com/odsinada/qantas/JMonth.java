@@ -3,7 +3,7 @@ package com.odsinada.qantas;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class TheMonth {
+public class JMonth {
 
     private static final Month JANUARY;
     private static final Month FEBRUARY;
@@ -49,11 +49,11 @@ public class TheMonth {
     }
 
     private final int month;
-    private final TheYear year;
+    private final JYear year;
 
-    public TheMonth(int month, int year) {
+    public JMonth(int month, int year) {
         this.month = month;
-        this.year = new TheYear(year);
+        this.year = new JYear(year);
     }
 
     public int getMonth() {
@@ -67,5 +67,23 @@ public class TheMonth {
         }
 
         return monthEnd;
+    }
+}
+
+class Month {
+    private final int index;
+    private final int dayCount;
+
+    public int getDayCount() {
+        return dayCount;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public Month(int index, int dayCount) {
+        this.index = index;
+        this.dayCount = dayCount;
     }
 }

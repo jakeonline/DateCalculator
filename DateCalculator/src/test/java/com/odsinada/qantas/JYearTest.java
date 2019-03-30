@@ -5,14 +5,14 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
-public class TheYearTest {
+public class JYearTest {
 
     @Test
     public void shouldIdentifyLeapYear() {
         // arrange
-        TheYear yearA = new TheYear(2000);
-        TheYear yearB = new TheYear(1900);
-        TheYear yearC = new TheYear(1901);
+        JYear yearA = new JYear(2000);
+        JYear yearB = new JYear(1900);
+        JYear yearC = new JYear(1901);
 
         // act
         // assert

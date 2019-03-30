@@ -1,9 +1,9 @@
 package com.odsinada.qantas;
 
-public class TheYear {
+public class JYear {
     private final int year;
 
-    public TheYear(int year) {
+    public JYear(int year) {
         this.year = year;
     }
 

@@ -5,13 +5,13 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-public class TheMonthTest {
+public class JMonthTest {
 
     @Test
     public void shouldReturnEndDayOf31DayMonths(){
         // arrange
-        TheMonth monthA = new TheMonth(1, 2001);
-        TheMonth monthB = new TheMonth(12, 1901);
+        JMonth monthA = new JMonth(1, 2001);
+        JMonth monthB = new JMonth(12, 1901);
 
         // act
         // assert
@@ -22,8 +22,8 @@ public class TheMonthTest {
     @Test
     public void shouldReturnEndDayOf30DayMonths(){
         // arrange
-        TheMonth monthA = new TheMonth(9, 2001);
-        TheMonth monthB = new TheMonth(4, 1901);
+        JMonth monthA = new JMonth(9, 2001);
+        JMonth monthB = new JMonth(4, 1901);
 
         // act
         // assert
@@ -34,8 +34,8 @@ public class TheMonthTest {
     @Test
     public void shouldReturnEndDayOfFebruaryRegularYear(){
         // arrange
-        TheMonth monthA = new TheMonth(2, 2001);
-        TheMonth monthB = new TheMonth(2, 1901);
+        JMonth monthA = new JMonth(2, 2001);
+        JMonth monthB = new JMonth(2, 1901);
 
         // act
         // assert
@@ -46,8 +46,8 @@ public class TheMonthTest {
     @Test
     public void shouldReturnEndDayOfFebruaryLeapYear(){
         // arrange
-        TheMonth monthA = new TheMonth(2, 2000);
-        TheMonth monthB = new TheMonth(2, 1984);
+        JMonth monthA = new JMonth(2, 2000);
+        JMonth monthB = new JMonth(2, 1984);
 
         // act
         // assert
