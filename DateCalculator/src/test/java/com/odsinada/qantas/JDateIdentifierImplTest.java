@@ -5,10 +5,23 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-public class JDateHelperTest {
-
+public class JDateIdentifierImplTest {
     private JDate dateA, dateB;
-    private JDateHelper helper;
+    private JDateIdentifier jDateIdentifier = new JDateIdentifierImpl();
+
+    @Test
+    public void shouldArrangeParamsRegardlessOfArgSequence() {
+        // arrange
+        dateA = new JDate(2001, 01, 01);
+        dateB = new JDate(2002, 01, 01);
+
+        // act
+        JDateParams paramsA = jDateIdentifier.getDateParams(dateA, dateB);
+        JDateParams paramsB = jDateIdentifier.getDateParams(dateB, dateA);
+
+        assertThat(paramsA.getStartDate() == paramsB.getStartDate(), equalTo(true));
+        assertThat(paramsA.getEndDate() == paramsB.getEndDate(), equalTo(true));
+    }
 
     @Test
     public void shouldArrangeWhenFirstDateIsEarlier(){
@@ -18,7 +31,7 @@ public class JDateHelperTest {
         dateB = new JDate(2002, 01, 01);
 
         // act
-        JDateParams params = JDateHelper.getDateParams(dateA, dateB);
+        JDateParams params = jDateIdentifier.getDateParams(dateA, dateB);
 
         // assert
         assertThat(params.getStartDate(), equalTo(dateA));
@@ -33,7 +46,7 @@ public class JDateHelperTest {
         dateB = new JDate(2001, 01, 01);
 
         // act
-        JDateParams params = JDateHelper.getDateParams(dateA, dateB);
+        JDateParams params = jDateIdentifier.getDateParams(dateA, dateB);
 
         // assert
         assertThat(params.getStartDate(), equalTo(dateB));

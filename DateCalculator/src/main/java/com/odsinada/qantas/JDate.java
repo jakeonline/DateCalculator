@@ -53,7 +53,7 @@ public class JDate {
         return year.getYear();
     }
 
-    public boolean isBeyond(JDate endDate) {
+    public boolean isPast(JDate endDate) {
         if (getYear() > endDate.getYear()
                 || (getYear() == endDate.getYear() && getMonth() > endDate.getMonth())
                 || (getYear() == endDate.getYear() && getMonth() == endDate.getMonth() && getDay() > endDate.getDay())) {
