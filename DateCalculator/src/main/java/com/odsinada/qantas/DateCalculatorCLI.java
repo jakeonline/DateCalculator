@@ -2,7 +2,7 @@ package com.odsinada.qantas;
 
 import java.util.Scanner;
 
-public class DateCalculatorApplication {
+public class DateCalculatorCLI {
 
     private DateCalculator calculator;
 
@@ -15,7 +15,7 @@ public class DateCalculatorApplication {
         System.out.println("Enter second input date (yyyy-mm-dd): ");
         String dateB = scanner.nextLine();
 
-        DateCalculatorApplication app = new DateCalculatorApplication();
+        DateCalculatorCLI app = new DateCalculatorCLI();
 
         int daysBetween =  app.run(dateA, dateB);
         System.out.println("Total days exclusive of input dates is: " + daysBetween);
