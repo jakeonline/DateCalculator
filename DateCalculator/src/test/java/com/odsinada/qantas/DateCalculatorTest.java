@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.Mockito.when;
 
 public class DateCalculatorTest {
 
@@ -17,6 +18,7 @@ public class DateCalculatorTest {
 
     @Test
     public void shouldCalcSucceedingDays(){
+        // arrange
         assertThat(calc.getDaysBetween("1972-11-07", "1972-11-08"), equalTo(0));
     }
 

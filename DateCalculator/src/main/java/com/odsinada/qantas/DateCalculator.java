@@ -25,16 +25,9 @@ public class DateCalculator {
 
     private int calculate(JDate dateA, JDate dateB) {
 
-        // identify start and end dates
-        JDate startDate = null;
-        JDate endDate = null;
-        if(dateA.isBeyond(dateB)){
-            startDate = dateB;
-            endDate = dateA;
-        } else {
-            startDate = dateA;
-            endDate = dateB;
-        }
+        JDateParams params = JDateHelper.getDateParams(dateA, dateB);
+        JDate startDate = params.getStartDate();
+        JDate endDate = params.getEndDate();
 
         // calculate
         JDate runningDate = JDate.clone(startDate);
