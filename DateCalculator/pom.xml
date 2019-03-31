@@ -48,7 +48,7 @@
             <archive>
               <manifest>
                 <addClasspath>true</addClasspath>
-                <mainClass>com.odsinada.qantas.DateCalculatorApplication</mainClass>
+                <mainClass>com.odsinada.qantas.DateCalculatorCLI</mainClass>
               </manifest>
             </archive>
           </configuration>
