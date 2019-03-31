@@ -36,13 +36,17 @@ public class DateCalculatorCLI {
         int daysBetween = 0;
 
         try {
-            JDateIdentifier jDateIdentifier = new JDateIdentifierImpl();
-            calculator = new DateCalculatorMonthBasedImpl(jDateIdentifier);
-            daysBetween = calculator.getDaysBetween(dateA, dateB);
+            daysBetween = getCalculator().getDaysBetween(dateA, dateB);
         } catch (Exception exc) {
             throw new RuntimeException("Date calculation failed.", exc);
         }
 
         return daysBetween;
+    }
+
+    private DateCalculator getCalculator() {
+        JDateIdentifier jDateIdentifier = new JDateIdentifierImpl();
+        calculator = new DateCalculatorMonthBasedImpl(jDateIdentifier);
+        return calculator;
     }
 }
