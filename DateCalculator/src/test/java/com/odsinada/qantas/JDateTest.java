@@ -147,17 +147,15 @@ public class JDateTest {
     @Test
     public void shouldReturnClone() {
         // arrange
-        when(modelDate.getYear()).thenReturn(2000);
-        when(modelDate.getMonth()).thenReturn(1);
-        when(modelDate.getMonthEndDay()).thenReturn(1);
+        jDate = new JDate(2000, 12, 15);
 
         // act
-        JDate monthEnd = JDate.getMonthEnd(modelDate);
+        JDate monthEnd = JDate.clone(jDate);
 
         // assert
         assertThat(monthEnd.getYear(), equalTo(2000));
-        assertThat(monthEnd.getMonth(), equalTo(1));
-        assertThat(monthEnd.getDay(), equalTo(1));
+        assertThat(monthEnd.getMonth(), equalTo(12));
+        assertThat(monthEnd.getDay(), equalTo(15));
     }
 
 }
